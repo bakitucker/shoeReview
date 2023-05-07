@@ -1,13 +1,48 @@
 body{
-  padding-top:80px;
-  word-wrap:break-word;
+  background-image: url('img/wire.png');
+  color: rgb(6, 6, 6);
+  font-size: 35px;
+  color: white;
+  
 }
-img{
-  height: 200px;
+h1,h3{
+  font-size: 35px;
+}
+a{
+  color: black;
 }
 
-div .cold{    display: flex;
-align-items: center;
-flex-wrap: wrap;
-flex-direction: column;
+div .loginsneaks{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(6, 6, 244, 0.495);
+  flex-direction: column;
+  align-items: center;
+  margin-top: 250px;
 }
+/* Add this CSS code to the style.css file */
+
+/* Add this CSS code to the style.css file to style the two columns */
+
+/* Style the two columns */
+/* .row {
+  display: flex;
+} */
+/* 
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 0 15px;
+}
+
+/* Add some spacing between the two columns */
+/* .col-md-6:first-of-type {
+  padding-right: 7.5px;
+}
+
+.col-md-6:last-of-type {
+  padding-left: 7.5px;
+} */ 
+
+
+

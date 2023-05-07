@@ -1,68 +1,83 @@
 <!doctype html>
 <html>
 <head>
-    <title>21 Savage Fan Site</title>
+    <title>Sneaker Rating App!!</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homestyle.css">
 </head>
 <body>
-<div class="container">
+<div class="">
 
     <div class="page-header text-center">
         <h1>Rate the Sneaker !!!</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
 
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        
-        <div class="cold col-sm-6">
-          <h3>Messages</h3>
-          <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <p>Shoe Name:<%= messages[i].name %></p>
-              <p>Shoe Brand:<%= messages[i].brand %></p>
-              <p>Comfort level (0-10):<span><%= messages[i].comfort %></span></p>
-              <p>Style Rate (0-10)<span><%= messages[i].rate %></span></p>
-              <p>Review:<span><%= messages[i].review %></span></p>
-              <p><span><i class="fa fa-trash" aria-hidden="true"></i></span></p>
-            </li>
-          <% } %>
-          </ul>
-
-          <h2>Add a Review</h2>
-        <% if (user.local.email) { %>
-          <form action="/messages" method="POST">
-            <div class="thePost">
-              <label for="shoeName">Shoe Name</label>
-              <input type="text" class="post" id="shoeName" name="name" required>
-            </div> 
-            <div class="thePost">
-              <label for="shoeBrand">Shoe Brand</label>
-              <input type="text" class="post" id="shoeBrand" name="brand" required>
-            </div> 
-            <div class="thePost">
-              <label for="comfortLevel">Comfort Level(0-10)</label>
-              <input type="text" class="post" id="comfortLevel" name="comfort" required>
-            </div> 
-            <div class="thePost">
-              <label for="styleRate">Style Rate(0-10)</label>
-              <input type="text" class="post" id="styleRate" name="rate" required>
-            </div> 
-            <div class="thePost">
-              <label for="shoeReview">Shoe Review</label>
-              <input type="text" class="post" id="shoeReview" name="review" required>
-            </div> 
-
-            <button type="submit">Submit</button>
-          </form>
-        </div>
+   <!-- Modify the HTML code to have two columns for the messages and add a review section -->
+<!-- <div class="row"> -->
+  <div class="flex">
+    <% if (user.local.email) { %>
+    <form action="/messages" method="POST">
+      <div class="thePost">
+        <label for="shoeName">Shoe Name:</label>
+        <input type="text" class="post" id="shoeName" name="name" required>
+      </div>
+      <div class="thePost">
+        <label for="shoeBrand">Shoe Brand:</label>
+        <input type="text" class="post" id="shoeBrand" name="brand" required>
+      </div>
+      <div class="thePost">
+        <label for="comfortLevel">Comfort Level(0-10):</label>
+        <input type="number" class="post" id="comfortLevel" min="0" max="10" name="comfort" required>
+      </div>
+      <div class="thePost">
+        <label for="styleRate">Style Rate(0-10):</label>
+        <input type="number" class="post" id="styleRate" min="0" max="10" name="rate" required>
+      </div>
+      <div class="thePost">
+        <label for="shoeReview">Shoe Review:</label>
+        <textarea id="shoeReview" name="review" rows="5" cols="33" placeholder="Insert review here"></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <% } %>
+  </div>
+  <div class="">
+    <h3>Reviews</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Shoe Name</th>
+          <th>Shoe Brand</th>
+          <th>Comfort level (0-10)</th>
+          <th>Style Rate (0-10)</th>
+          <th>Review</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i<messages.length; i++) {%>
+        <tr class="message">
+          <td><%= messages[i].name %></td>
+          <td><%= messages[i].brand %></td>
+          <td><span><%= messages[i].comfort %></span></td>
+          <td><span><%= messages[i].rate %></span></td>
+          <td><span><%= messages[i].review %></span></td>
+          <td><span><i class="fa fa-trash" aria-hidden="true"></i></span></td>
+        </tr>
         <% } %>
+      </tbody>
+    </table>
+  </div>
+ 
+<!-- </div> -->
 
+   
 </div>
 
 <script src="main.js"></script>
